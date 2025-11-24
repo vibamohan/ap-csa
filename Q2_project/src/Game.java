@@ -5,8 +5,8 @@ public class Game {
   private final Player player;
   private final Enemy[] enemies;
   private final KeyStateManager keyManager;
-  private int level = 1;
-  private int score = 0;
+  public int level = 1;
+  public int score = 0;
 
   public Game(Screen screen, KeyStateManager keyManager) {
     this.keyManager = keyManager;
