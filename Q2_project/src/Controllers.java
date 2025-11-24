@@ -1,3 +1,5 @@
+import static java.awt.event.KeyEvent.*;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.util.function.DoubleSupplier;
@@ -20,14 +22,14 @@ public class Controllers {
     return new Controller(
         () -> {
           double x = 0;
-          if (keys.isPressed(java.awt.event.KeyEvent.VK_A)) x -= 1;
-          if (keys.isPressed(java.awt.event.KeyEvent.VK_D)) x += 1;
+          if (keys.isPressed(VK_A)) x -= 1;
+          if (keys.isPressed(VK_D)) x += 1;
           return x;
         },
         () -> {
           double y = 0;
-          if (keys.isPressed(java.awt.event.KeyEvent.VK_W)) y -= 1;
-          if (keys.isPressed(java.awt.event.KeyEvent.VK_S)) y += 1;
+          if (keys.isPressed(VK_W)) y -= 1;
+          if (keys.isPressed(VK_S)) y += 1;
           return y;
         },
         () -> 0);

@@ -8,6 +8,11 @@ table EnemyState  {
   y:int; 
 }
 
+table KeyState {
+  key:ubyte;
+  pressed:bool;
+}
+
 table GameState {
   keys:[KeyState];
   player:PlayerState;
