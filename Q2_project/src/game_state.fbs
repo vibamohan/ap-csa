@@ -1,11 +1,25 @@
+/// This flatbuffer encapsulates all states in this game for a SINGLE player. Multiple players EACH send INDIVIDUAL messages in this schema for comms
 table PlayerState {
   x:int;
-  y:int; 
+  y:int;
+  theta:int;
+  shooting:bool;
 }
 
+table Shell {
+    x:int;
+    y:int;
+    hit:bool;
+}
+
+// NOTE TO SELF: filter using alive to not have hundreds of inactive enemies
 table EnemyState  {
   x:int;
-  y:int; 
+  y:int;
+  size:int;
+  vx:int;
+  vy:int;
+  alive:bool;
 }
 
 table KeyState {

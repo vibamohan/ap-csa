@@ -5,7 +5,6 @@ public class Player {
   int width = Constants.PLAYER_WIDTH;
   int height = Constants.PLAYER_HEIGHT;
   private final Controllers.Controller controller;
-  private final boolean isMouse;
 
   public Player(int x, int y, Controllers.Controller controller, boolean isMouse) {
     this.x = x;
