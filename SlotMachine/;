@@ -1,0 +1,52 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.time.Duration;
+import javax.swing.*;
+
+public class Screen extends JPanel implements ActionListener {
+  private SlotMachine machine;
+  private JButton spinButton;
+
+  public Screen() {
+    this.setLayout(null);
+    this.setFocusable(true);
+
+    machine = new SlotMachine(100);
+
+    spinButton = new JButton("Spin");
+    spinButton.setBounds(50, 400, 100, 50);
+    spinButton.addActionListener(this);
+    this.add(spinButton);
+  }
+
+  @Override
+  protected void paintComponent(Graphics g) {
+    super.paintComponent(g);
+    machine.drawMe(g);
+
+    if (machine.getBalance() < 0) {
+      Font font = new Font("Arial", Font.PLAIN, 20);
+      g.setFont(font);
+      g.drawString("Ran out of tokens, you lost!", 400, 200);
+      try {
+        Thread.sleep(Duration.ofSeconds(5));
+      } catch (InterruptedException e) {
+        System.out.println("Interrupted while waiting");
+        System.exit(0);
+      } catch (Exception e) {
+        System.out.println("General exception");
+        System.exit(0);
+      }
+
+      System.exit(0);
+    }
+  }
+
+  @Override
+  public void actionPerformed(ActionEvent e) {
+    if (e.getSource() == spinButton && machine.getBalance() > 0) {
+      machine.spin();
+    }
+    repaint();
+  }
+}

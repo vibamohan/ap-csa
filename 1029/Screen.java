@@ -19,6 +19,11 @@ public class Screen extends JPanel implements Runnable {
   }
 
   @Override
+  public int getHeight() {
+    return 1000;
+  }
+
+  @Override
   public void run() {
     while (true) {
       sunY -= 2;
@@ -58,14 +63,14 @@ public class Screen extends JPanel implements Runnable {
 
     // Ground
     g.setColor(new Color(50, 200, 50));
-    g.fillRect(0, 400, getWidth(), 200);
+    g.fillRect(0, 400, getWidth(), 900);
 
     // Sun/Moon
     g.setColor(day ? Color.YELLOW : Color.WHITE);
     g.fillOval(600, sunY, 80, 80);
 
     // Grass 10x6
-    int startX = 50, startY = 420;
+    int startX = 50, startY = 400;
     for (int row = 0; row < 10; row++)
       for (int col = 0; col < 6; col++) farm.drawGrass(g, startX + col * 10, startY + row * 10);
 
@@ -76,8 +81,8 @@ public class Screen extends JPanel implements Runnable {
       for (int col = 0; col < 5; col++) farm.drawTree(g, startX + col * 50, startY + row * 50);
 
     // Corn 5x5
-    startX = 100;
-    startY = 300;
+    startX = 120;
+    startY = 400;
     for (int row = 0; row < 5; row++)
       for (int col = 0; col < 5; col++) farm.drawCorn(g, startX + col * 30, startY + row * 30);
 
